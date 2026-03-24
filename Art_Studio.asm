@@ -318,6 +318,7 @@ ReadSTT:
   BEQ ReadSTDoneT   ; branch to ReadADone if button is NOT pressed (0)
                   ; add instructions here to do something when button IS pressed (1)
 
+  JSR changeBG
   LDA #$01
   STA GameState
   LDA #$00
@@ -1583,7 +1584,7 @@ BEQ Havepainted28
   STA $0270
 
   LDA BrushX
-  STA $0274
+  STA $0273
 
 ; this is for changin paint color
 LDA $0272
@@ -1620,7 +1621,7 @@ BEQ Havepainted29
   STA $0274
 
   LDA BrushX
-  STA $0278
+  STA $0277
 
 ; this is for changin paint color
 LDA $0276
@@ -2731,12 +2732,6 @@ Havepainted61:
 
 
 
-
-
-
-
-
-
 LDA painted62
 CMP #$01
 BEQ Havepainted62
@@ -2818,7 +2813,7 @@ ChangeBrush:
 
 LDA $0201
 CLC
-ADC #$08
+ADC #$04
 STA $0201
 
 RTS
@@ -2987,10 +2982,6 @@ RTS
 
 
 
-
-
-
-
 StartTimer2: ;this timer increments km counter
     ; Increment frame delay counter
     LDA FrameDelayCounter2
@@ -3074,14 +3065,6 @@ STA firststloopdone
 tthere:
 
 RTS
-
-
-
-
-
-
-
-
 
 
 
@@ -3389,7 +3372,7 @@ background2:
 
   .byte $25,$48,$48,$48,$48,$48,$48,$48,$48,$48,$48,$48,$48,$25,$25,$25,$25,$25,$25,$25,$25,$25,$25,$25,$25,$25,$25,$25,$25,$25,$25,$25
 
-  .byte $96,$97,$96,$97,$A2,$27,$A0,$A0,$27,$A3,$97,$96,$97,$96,$97,$96,$97,$96,$97,$96,$97,$96,$97,$96,$97,$96,$97,$96,$97,$96,$97,$25
+  .byte $96,$97,$96,$97,$A2,$27,$A0,$A0,$27,$A3,$97,$96,$97,$96,$97,$96,$97,$96,$97,$96,$97,$96,$97,$96,$97,$96,$97,$96,$97,$96,$97,$96
 
   .byte $25,$25,$25,$A2,$27,$A5,$A0,$A0,$A4,$27,$A3,$25,$25,$25,$25,$25,$25,$25,$25,$25,$25,$25,$25,$25,$25,$25,$25,$25,$25,$25,$25,$25
 
